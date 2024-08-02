@@ -7337,7 +7337,7 @@ local ToggleCastleRaid = Tabs.Main:AddToggle("ToggleCastleRaid", {
 
 
 
-Tabs.KitSune:AddButton({
+Tabs.Ok:AddButton({
         Title = "Trade Azure",
         Description = "",
         Callback = function()            
@@ -7345,7 +7345,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net")
  end
     })
  
- Tabs.KitSune:AddParagraph({
+ Tabs.Ok:AddParagraph({
         Title = "More comming Soon",
         Content = "Sory."
     })
@@ -7628,3 +7628,12 @@ spawn(function()
       end
   end)
 end)
+
+
+Tabs.Ok:AddButton({
+        Title = "T2ra2de A22zure",
+        Description = "",
+        Callback = function()            
+game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/KitsuneStatuePray"):InvokeServer()
+ end
+    })
