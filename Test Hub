@@ -7655,3 +7655,20 @@ spawn(function()
       end
   end)
 end)
+
+Tabs.Ok:AddButton({
+	Title = "Go Pirate", 
+	Description = "",
+	Callback = function()
+        local args = {
+    [1] = "SetTeam",
+    [2] = "Pirates"
+  }
+  game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+  local args = {
+    [1] = "BartiloQuestProgress"
+  }
+  game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+
+ end
+})
