@@ -19,7 +19,7 @@ local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "home" }), 
     Setting = Window:AddTab({ Title = "Setting", Icon = "settings" }),
     Stats = Window:AddTab({ Title = "Stats", Icon = "plus-circle" }),
-    Ok = Window:AddTab({ Title = "OK", Icon = "anchor" }),
+    Okk = Window:AddTab({ Title = "Okk", Icon = "anchor" }),
     KitSune = Window:AddTab({ Title = "KitSune island", Icon = "lamp" }),
     Visual = Window:AddTab({ Title = "Visual", Icon = "phone" }),
     Player = Window:AddTab({ Title = "Player", Icon = "dog" }),
@@ -7656,7 +7656,7 @@ spawn(function()
   end)
 end)
 
-Tabs.Ok:AddButton({
+Tabs.Okk:AddButton({
 	Title = "Go Pirate", 
 	Description = "",
 	Callback = function()
