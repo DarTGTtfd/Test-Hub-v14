@@ -6,8 +6,8 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 --------------------------------------------------------------------------------------------------------------------------------------------
 local Window = Fluent:CreateWindow({
-    Title = "GHHHr",
-    SubTitle = "testhub", 
+    Title = "11",
+    SubTitle = "222", 
     TabWidth = 160,   
     Size = UDim2.fromOffset(450, 300),
     Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
@@ -19,10 +19,8 @@ local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "home" }), 
     Setting = Window:AddTab({ Title = "Setting", Icon = "settings" }),
     Stats = Window:AddTab({ Title = "Stats", Icon = "plus-circle" }),
-    Okk = Window:AddTab({ Title = "Okk", Icon = "anchor" }),
-    KitSune = Window:AddTab({ Title = "KitSune island", Icon = "lamp" }),
-    Visual = Window:AddTab({ Title = "Visual", Icon = "phone" }),
-    Player = Window:AddTab({ Title = "Player", Icon = "dog" }),
+    Ok = Window:AddTab({ Title = "OK", Icon = "anchor" }),
+    Player = Window:AddTab({ Title = "Player", Icon = "baby" }),
     Teleport = Window:AddTab({ Title = "Teleport", Icon = "palmtree" }),
     Fruit = Window:AddTab({ Title = "Devil Fruit", Icon = "cherry" }),
     Raid = Window:AddTab({ Title = "Dungeon", Icon = "swords" }),
@@ -2320,7 +2318,8 @@ ImageButton.Parent = ScreenGui
 ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ImageButton.Position = UDim2.new(0.10615778, 0, 0.16217947, 0)
 ImageButton.Size = UDim2.new(0.0627121851, 0, 0.107579626, 0)
-ImageButton.Image = "rbxassetid://11816162894"
+ImageButton.Image = "rbxassetid://18744064423"
+
 UICorner.CornerRadius = UDim.new(0, 30)
 UICorner.Parent = ImageButton
 
@@ -2388,7 +2387,6 @@ local posX = 0
 local posY = 60
 local posZ = 0
 --------------------------------------------------------------------------------------------------------------------------------------------
-
 --Create Tabs
     Tabs.Main:AddParagraph({
         Title = "Farming",
@@ -3326,7 +3324,83 @@ spawn(function()
     end
     end)
 
- 
+local ToggleCake = Tabs.Main:AddToggle("ToggleCake", {Title = "Auto Farm Cake Prince2", Default = false })
+ToggleCake:OnChanged(function(Value)
+ _G.CakePrince = Value
+end)
+Options.ToggleCake:SetValue(false)
+
+spawn(function()
+    while task.wait() do
+    if _G.CakePrince then
+    game.ReplicatedStorage.Remotes.CommF_:InvokeServer("CakePrinceSpawner")
+    if game.ReplicatedStorage:FindFirstChild("Cake Prince") or game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then
+    if game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then
+    for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+    if _G.CakePrince and v.Name == "Cake Prince" and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+    repeat task.wait()
+    AutoHaki()
+    EquipTool(SelectWeapon)
+    Tween(v.HumanoidRootPart.CFrame * Pos)
+    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+    v.HumanoidRootPart.Transparency = 1
+    v.Humanoid.JumpPower = 0
+    v.Humanoid.WalkSpeed = 0
+    v.HumanoidRootPart.CanCollide = false
+    FarmPos = v.HumanoidRootPart.CFrame
+    MonFarm = v.Name
+    game:GetService'VirtualUser':CaptureController()
+    game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
+	BringMobs = false
+    until not _G.CakePrince or not v.Parent or v.Humanoid.Health <= 0
+	BringMobs = true
+    end
+    end
+    else
+      if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 0 and (CFrame.new(-1990.672607421875, 4532.99951171875, -14973.6748046875).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude >= 2000 then
+    Tween(CFrame.new(-2151.82153, 149.315704, -12404.9053))
+	BirngMobs = true
+    end
+    end
+    else
+      if game:GetService("Workspace").Enemies:FindFirstChild("Cookie Crafter") or game:GetService("Workspace").Enemies:FindFirstChild("Cake Guard") or game:GetService("Workspace").Enemies:FindFirstChild("Baking Staff") or game:GetService("Workspace").Enemies:FindFirstChild("Head Baker") then
+    for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+    if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+    if (v.Name == "Cookie Crafter" or v.Name == "Cake Guard" or v.Name == "Baking Staff" or v.Name == "Head Baker") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+    repeat task.wait()
+    AutoHaki()
+    EquipTool(SelectWeapon)
+    Tween(v.HumanoidRootPart.CFrame * Pos)
+    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+    v.HumanoidRootPart.Transparency = 1
+    v.Humanoid.JumpPower = 0
+    v.Humanoid.WalkSpeed = 0
+    v.HumanoidRootPart.CanCollide = false
+    FarmPos = v.HumanoidRootPart.CFrame
+    MonFarm = v.Name
+    game:GetService'VirtualUser':CaptureController()
+    game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
+    until not _G.CakePrince or not v.Parent or v.Humanoid.Health <= 0
+    end
+    end
+    end
+    else
+      local cakepos = CFrame.new(-2077, 252, -12373)
+    if BypassTP then
+    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - cakepos.Position).Magnitude > 2000 then
+    BTP(cakepos)
+    wait(3)
+    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - cakepos.Position).Magnitude < 2000 then
+    Tween(cakepos)
+    end
+    else
+    Tween(v.HumanoidRootPart.CFrame * Pos2)
+    end
+    end
+    end
+    end
+    end
+    end)
 
 
 
@@ -5905,40 +5979,6 @@ while wait() do
 end
 end)
 
-local ToggleKillPlayerTrial = Tabs.Race:AddToggle("ToggleKillPlayerTrial", {Title = "Auto Kill player Trial!",Description = "", Default = false })
-ToggleKillPlayerTrial:OnChanged(function(Value)
-    _G.KillAfterTrials = value
-    StopTween(_G.KillAfterTrials)
-end)
-
-spawn(function()
-    while wait() do 
-        pcall(function()
-            if _G.KillAfterTrials then
-                for i,v in pairs(game:GetService("Workspace").Characters:GetChildren()) do
-                    if v.Name ~= game.Players.LocalPlayer.Name and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 100 then
-                        if v.Humanoid.Health > 0 then
-                            repeat wait()
-                                AutoHaki()
-                                EquipWeapon(_G.SelectWeapon)
-                                NameTarget = v.Name
-                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,0,5))
-                                v.HumanoidRootPart.CanCollide = false
-                                v.Head.CanCollide = false
-                                v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-                                Click()
-                            until not _G.KillAfterTrials or not v.Parent or v.Humanoid.Health <= 0 
-                        end
-                    end
-                end
-            end
-        end)
-    end
-end)
-
-
-
-
 --------------------------------------------------------------------------------------------------------------------------------------------
 --shop
 
@@ -5981,13 +6021,7 @@ Tabs.Shop:AddButton({
 	end
 })
 
-Tabs.Shop:AddButton({
-	Title = "Electric Claw",
-	Description = "",
-	Callback = function()
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
-	end
-})
+
 
 
 Tabs.Shop:AddButton({
@@ -6328,12 +6362,13 @@ Tabs.Misc:AddButton({
 		game.Players.localPlayer.PlayerGui.Main.Titles.Visible = true
 	end
 })
+    Tabs.Ok:AddParagraph({
+        Title = "Mirage",
+        Content = "TP mirage"
+    })
 
 
-
-
-
-Tabs.Race:AddButton({
+Tabs.Ok:AddButton({
 	Title = "Teleport to Mirage", 
 	Description = "",
 	Callback = function()
@@ -6342,22 +6377,17 @@ Tabs.Race:AddButton({
     end
 })
 
- Tabs.Ok:AddButton({
-            Title = "Coppy Server Discord Link",
-            Description = "Click(Join To see more updates)",
-            Callback = function()
-            setclipboard("https://discord.com/invite/tEYvq9m3GT")
-            Notify("Script Status", "Copied Discord Lin!", 10)
-         end
-    })
-
+ Tabs.Ok:AddParagraph({
+        Title = "Aimbot",
+        Content = "Aimbot v1"
+}) 
 
 
 
 
 Tabs.Ok:AddButton({
-	Title = "Aimbot v1", 
-	Description = "This is Not my Script Warning",
+	Title = "Touch here", 
+	Description = "",
 	Callback = function()
         loadstring(game:HttpGet("https://rentry.co/n55gmtpi/raw", true))()
 
@@ -6472,7 +6502,7 @@ end)
 		end
 	end)
     
-    local Kitsune = Tabs.KitSune:AddParagraph({
+    local Kitsune = Tabs.Ok:AddParagraph({
         Title = "KITSUNE Island",
         Content = ""
     })
@@ -6488,11 +6518,7 @@ end)
                end
         end)
 end)
-
-
-
-
-
+    
     local FrozenIsland = Tabs.Ok:AddParagraph({
         Title = "Frozen Dimension",
         Content = ""
@@ -6550,6 +6576,8 @@ local localbountyhornor = Tabs.Ok:AddParagraph({
             end)
         end
     end)
+
+
 
 
     
@@ -6689,14 +6717,6 @@ Tabs.Shop:AddButton({
       end    
 })
 
-Tabs.Ok:AddButton({
-        Title = "Music Script with id", 
-	Description = "By me",
-	Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/DarTGTtfd/music-ui/main/music%20ui"))()
-      end    
-})
-
 Tabs.Shop:AddButton({
         Title = "Dual Head Debate", 
 	Description = "",
@@ -6747,62 +6767,12 @@ Tabs.Shop:AddButton({
 })
 
 Tabs.Shop:AddButton({
-        Title = "Pole v.2 [ 5,000 Fragments ]", 
+        Title = "Flinlock", 
 	Description = "",
 	Callback = function()
-        game.ReplicatedStorage.Remotes.CommF_:InvokeServer("ThunderGodTalk")
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Flintlock")
       end    
 })
-
-
-
-Tabs.Ok:AddButton({
-        Title = "W Azure Bounty", 
-	Description = "Made By Azure Credits",
-	Callback = function()
-getgenv().SpamSkill = false
-getgenv().AutoUseRaceV3 = true
-getgenv().AutoUseRacev4 = true
-getgenv().SpamSkillOnRaceV4 = true
-getgenv().Invisible = true
-getgenv().InCombatNoReset = false
-getgenv().Team = "Pirates" -- Marines
-getgenv().TweenSpeed = 300 -- 350 max or Get Tp Back
- getgenv().Setting = { -- Select Weapon, Self Explain
-        ["Melee"] = {["Enable"] = true,["Delay"] = 3,
-          ["Skills"] = {
-            ["Z"] = {["Enable"] = true,["HoldTime"] = 0,["TimeToNextSkill"] = 0,},
-            [ "X"] = {["Enable"] = true,["HoldTime"] = 0, ["TimeToNextSkill"] = 0,},
-            ["C"] = {["Enable"] = true,["HoldTime"] = 0, ["TimeToNextSkill"] = 0,},
-            },
-        },
-        ["Blox Fruit"] = {["Enable"] = true, ["Delay"] = 2,
-            ["Skills"] = {
-                ["Z"] = {["Enable"] = true, ["HoldTime"] = 1.5, ["TimeToNextSkill"] = 0,},
-                ["X"] = { ["Enable"] = true, ["HoldTime"] = 0, ["TimeToNextSkill"] = 0,},
-                ["C"] = { ["Enable"] = true, ["HoldTime"] = 0,["TimeToNextSkill"] = 0, },
-                ["V"] = { ["Enable"] = true, ["HoldTime"] = 0,["TimeToNextSkill"] = 0,},
-                ["F"] = {["Enable"] = true,["HoldTime"] = 0, ["TimeToNextSkill"] = 0,},
-            },
-        },
-        ["Sword"] = { ["Enable"] = false, ["Delay"] = 2,
-            ["Skills"] = {
-                ["Z"] = {["Enable"] = true,  ["HoldTime"] = 0.5,["TimeToNextSkill"] = 0,},
-                ["X"] = {["Enable"] = true, ["HoldTime"] = 0.5, ["TimeToNextSkill"] = 0,},
-            },
-        },
-        ["Gun"] = {["Enable"] = false, ["Delay"] = 2,
-            ["Skills"] = {
-                ["Z"] = {["Enable"] = true,["HoldTime"] = 0.5,["TimeToNextSkill"] = 0,},
-                ["X"] = {["Enable"] = true,["HoldTime"] = 0.5,["TimeToNextSkill"] = 0,
-                },
-            },
-        }
-    }
-loadstring(game:HttpGet('https://raw.githubusercontent.com/vinhuchi/temp-repos/main/FreeAutoBounty.lua'))()
-     end
- })
-
 
 Tabs.Shop:AddButton({
         Title = "Refined Slingshot", 
@@ -7251,424 +7221,6 @@ end
 
   end
 })
-        Tabs.Visual:AddButton({
-        Title = "Rain Fruit",
-        Description = "Rain fruit (Fake)",
-        Callback = function()
-            for i, v in pairs(game:GetObjects("rbxassetid://14759368201")[1]:GetChildren()) do
-                v.Parent = game.Workspace.Map
-                v:MoveTo(
-                    game.Players.LocalPlayer.Character.PrimaryPart.Position +
-                        Vector3.new(math.random(-50, 50), 100, math.random(-50, 50))
-                )
-                if v.Fruit:FindFirstChild("AnimationController") then
-                    v.Fruit:FindFirstChild("AnimationController"):LoadAnimation(v.Fruit:FindFirstChild("Idle")):Play()
-                end
-                v.Handle.Touched:Connect(
-                    function(otherPart)
-                        if otherPart.Parent == game.Players.LocalPlayer.Character then
-                            v.Parent = game.Players.LocalPlayer.Backpack
-                            game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-                        end
-                    end
-                )
-            end
-        end
-    })
 
 
-            Tabs.Ok:AddButton({
-            Title = "Coppy Server Job Id",
-            Description = "Click",
-            Callback = function()
-            setclipboard(game.JobId)
-            Notify("Script Status", "Copied Job Id!", 10)
-         end
-    })
-
-
-    
-
-            Tabs.Ok:AddButton({
-            Title = "Fps Bost2",
-            Description = "!This Script Is not mine!",
-            Callback = function()
-            _G.Settings = {
-    Players = {
-        ["Ignore Me"] = true, -- Ignore your Character
-        ["Ignore Others"] = true-- Ignore other Characters
-    },
-    Meshes = {
-        Destroy = false, -- Destroy Meshes
-        LowDetail = true -- Low detail meshes (NOT SURE IT DOES ANYTHING)
-    },
-    Images = {
-        Invisible = true, -- Invisible Images
-        LowDetail = false, -- Low detail images (NOT SURE IT DOES ANYTHING)
-        Destroy = false, -- Destroy Images
-    },
-    ["No Particles"] = true, -- Disables all ParticleEmitter, Trail, Smoke, Fire and Sparkles
-    ["No Camera Effects"] = true, -- Disables all PostEffect's (Camera/Lighting Effects)
-    ["No Explosions"] = true, -- Makes Explosion's invisible
-    ["No Clothes"] = true, -- Removes Clothing from the game
-    ["Low Water Graphics"] = true, -- Removes Water Quality
-    ["No Shadows"] = true, -- Remove Shadows
-    ["Low Rendering"] = true, -- Lower Rendering
-    ["Low Quality Parts"] = true -- Lower quality parts
-}
-loadstring(game:HttpGet("https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/FPSBooster.lua"))()
-         end
-    })
-
-
-
-        
-
-local ToggleCastleRaid = Tabs.Main:AddToggle("ToggleCastleRaid", {
-        Title = "Auto Pirates Castle Raid",
-        Description = "", 
-        Default = false })
-    ToggleCastleRaid:OnChanged(function(Value)
-        _G.CastleRaid = Value
-    end)
-    Options.ToggleCastleRaid:SetValue(false)
-    spawn(function()
-        while wait() do
-            if _G.CastleRaid then
-                pcall(function()
-                    local CFrameCastleRaid = CFrame.new(-5496.17432, 313.768921, -2841.53027, 0.924894512, 7.37058015e-09, 0.380223751, 3.5881019e-08, 1, -1.06665446e-07, -0.380223751, 1.12297109e-07, 0.924894512)
-                    if (CFrame.new(-5539.3115234375, 313.800537109375, -2972.372314453125).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 500 then
-                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if _G.CastleRaid and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-                                if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 2000 then
-                                    repeat wait(_G.Fast_Delay)
-                                        AttackNoCoolDown()
-                                        AutoHaki()
-                                        EquipTool(SelectWeapon)
-                                        v.HumanoidRootPart.CanCollide = false
-                                        v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-                                        Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
-                                    until v.Humanoid.Health <= 0 or not v.Parent or not _G.CastleRaid
-                                end
-                            end
-                        end
-                    else
-                        toTarget(CFrameCastleRaid)
-                     
-                      
-                    end
-                end)
-            end
-        end
-        end)
-
-
-
-Tabs.KitSune:AddButton({
-        Title = "Trade Azure",
-        Description = "",
-        Callback = function()            
-game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/KitsuneStatuePray"):InvokeServer()
- end
-    })
- 
- Tabs.KitSune:AddParagraph({
-        Title = "More comming Soon",
-        Content = "Sory."
-    })
-
- local ToggleSailBoat = Tabs.Main:AddToggle("ToggleSailBoat", {Title = "Auto buy Boat",Description = "Sea 3", Default = false })
-    ToggleSailBoat:OnChanged(function(Value)
-        _G.SailBoat = Value
-    end)
-    Options.ToggleSailBoat:SetValue(false)
-    spawn(function()
-        while wait() do
-            pcall(function()
-                if _G.SailBoat then
-                    if not game:GetService("Workspace").Enemies:FindFirstChild("Shark") or not game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or not game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or not game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") then
-                        if not game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
-                            buyb = TweenBoat(CFrame.new(-16927.451171875, 9.0863618850708, 433.8642883300781))
-                            if (CFrame.new(-16927.451171875, 9.0863618850708, 433.8642883300781).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
-                                if buyb then buyb:Stop() end
-                                local args = {
-                                    [1] = "BuyBoat",
-                                    [2] = "PirateGrandBrigade"
-                                }
-    
-                                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-                            end
-                        elseif game:GetService("Workspace").Boats:FindFirstChild("PirateGrandBrigade") then
-                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                                TweenBoat(game:GetService("Workspace").Boats.PirateGrandBrigade.VehicleSeat.CFrame * CFrame.new(0,1,0))
-                            else
-                                for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
-                                    if v.Name == "PirateGrandBrigade" then
-                                        repeat wait(_G.Fast_Delay)
-                                            if (CFrame.new(-17013.80078125, 10.962434768676758, 438.0169982910156).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
-                                                TweenShip(CFrame.new(-33163.1875, 10.964323997497559, -324.4842224121094))
-                                            elseif (CFrame.new(-33163.1875, 10.964323997497559, -324.4842224121094).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
-                                                TweenShip(CFrame.new(-37952.49609375, 10.96342945098877, -1324.12109375))
-                                            elseif (CFrame.new(-37952.49609375, 10.96342945098877, -1324.12109375).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
-                                                TweenShip(CFrame.new(-33163.1875, 10.964323997497559, -324.4842224121094))
-                                            end 
-                                        until game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") or _G.SailBoat == false
-                                    end
-                                end
-                            end
-                        end
-                    end
-                end
-            end)
-        end
-    end)
-    
-    spawn(function()
-		pcall(function()
-			while wait() do
-				if _G.SailBoat then
-					if game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") then
-					    game.Players.LocalPlayer.Character.Humanoid.Sit = false
-					end
-				end
-			end
-		end)
-	end)
-	
-local ToggleNocliprock = Tabs.Main:AddToggle("ToggleNocliprock", {
-    Title = "Auto No Clip Rock",
-    Description = "Sea 3", 
-    Default = false })
-ToggleNocliprock:OnChanged(function(Value)
-    _G.Nocliprock = Value
-end)
-Options.ToggleNocliprock:SetValue(false)
-spawn(function()
-	while wait() do
-		if _G.Nocliprock then
-			if game.Players.LocalPlayer.Character.Humanoid.Sit == true then
-				for _, v in pairs(game.Workspace.Boats:GetDescendants()) do
-					if v:IsA("BasePart") and v.CanCollide == true then
-						v.CanCollide = false
-					end
-				end
-				for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-					if v:IsA("BasePart") and v.CanCollide == true then
-						v.CanCollide = false
-					end
-				end
-			elseif game.Players.LocalPlayer.Character.Humanoid.Sit == false then
-				for _, v in pairs(game.Workspace.Boats:GetDescendants()) do
-					if v:IsA("BasePart") and v.CanCollide == false then
-						v.CanCollide = true
-					end
-				end
-				for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-					if v:IsA("BasePart") and v.CanCollide == false then
-						v.CanCollide = true
-					end
-				end
-			end
-		end
-	end
-end)
-
-	
-	local SetSpeedBoatSlider = Tabs.Main:AddSlider("SliderSpeedBoat", {
-	Title = "Set Speed (boat)",
-	Description = "",
-	Default = 300,
-	Min = 0,
-	Max = 1000,
-	Rounding = 1,
-	Callback = function(value)
-		SetSpeedBoat = value
-	end
-})
-
-SetSpeedBoatSlider:OnChanged(function(value)
-	SetSpeedBoat = value
-end)
-
-SetSpeedBoatSlider:SetValue(300)
-
-
-
-  Tabs.Race:AddButton({
-        Title = "Auto Tween to Mirage Island",
-        Description = "",
-        Callback = function()
-            TweenMirage()
-        end
-    })
-    function TweenMirage()
-        repeat
-            wait()
-        until game:GetService("Workspace").Map:FindFirstChild("MysticIsland")
-        if game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
-            AllNPCS = getnilinstances()
-            for r, v in pairs(game:GetService("Workspace").NPCs:GetChildren()) do
-                table.insert(AllNPCS, v)
-            end
-            for r, v in pairs(AllNPCS) do
-                if v.Name == "Advanced Fruit Dealer" then
-                    Tween2(v.HumanoidRootPart.CFrame)
-                end
-            end
-        end
-    end
-
-
-    Tabs.Race:AddButton({
-        Title = "Tween to Highest Point",
-        Description = "",
-        Callback = function()
-            TwenetoHighestPoint()
-        end
-    })
-
-    function TwenetoHighestPoint()
-        HighestPoint = getHighestPoint()
-        if HighestPoint then
-            Tween2(HighestPoint.CFrame * CFrame.new(0, 211.88, 0))
-        end
-    end
-    function getHighestPoint()
-        if not game.workspace.Map:FindFirstChild("MysticIsland") then
-            return nil
-        end
-        for r, v in pairs(game:GetService("Workspace").Map.MysticIsland:GetDescendants()) do
-            if v:IsA("MeshPart") then
-                if v.MeshId == "rbxassetid://6745037796" then
-                    return v
-                end
-            end
-        end
-    end
-
-local ToggleTweenGear = Tabs.Race:AddToggle("ToggleTweenGear", {Title = "Tween To Gear",Description = "", Default = false })
-ToggleTweenGear:OnChanged(function(Value)
-    _G.TweenToGear = Value
-end) 
-Options.ToggleTweenGear:SetValue(false)
-
-spawn(function()
-    pcall(function()
-        while wait() do
-            if _G.TweenToGear then
-				if game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
-					for i,v in pairs(game:GetService("Workspace").Map.MysticIsland:GetChildren()) do 
-						if v:IsA("MeshPart")then 
-                            if v.Material ==  Enum.Material.Neon then  
-                                Tween2(v.CFrame)
-                            end
-                        end
-					end
-				end
-			end
-        end
-    end)
-    end)
-
-
-
-
-    local Togglelockmoon = Tabs.Race:AddToggle("Togglelockmoon", {Title = "Lock Moon and Use Race Skill",Description = "", Default = false })
-    Togglelockmoon:OnChanged(function(Value)
-        _G.AutoLockMoon = Value
-    end) 
-    Options.Togglelockmoon:SetValue(false)
-
-    spawn(function()
-        while wait() do
-            pcall(function()
-                if _G.AutoLockMoon then
-                    local moonDir = game.Lighting:GetMoonDirection()
-                    local lookAtPos = game.Workspace.CurrentCamera.CFrame.p + moonDir * 100
-                    game.Workspace.CurrentCamera.CFrame = CFrame.lookAt(game.Workspace.CurrentCamera.CFrame.p, lookAtPos)
-                end
-            end)
-        end
-    end)
-
-
-    spawn(function()
-        while wait() do
-            pcall(function()
-                if _G.AutoLockMoon then
-                    game:GetService("VirtualInputManager"):SendKeyEvent(true,"T",false,game)
-                    wait(0.1)
-                    game:GetService("VirtualInputManager"):SendKeyEvent(false,"T",false,game)
-                end
-            end)
-        end
-    end)
-
-local ToggleAutoT = Tabs.Ok:AddToggle("ToggleAutoT", {Title = "Auto Turn On V3", Description = "", Default = false })
-ToggleAutoT:OnChanged(function(Value)
-    _G.AutoT = Value
-    end)
- Options.ToggleAutoT:SetValue(false)
- spawn(function()
-    while wait() do
-        pcall(function()
-            if _G.AutoT then
-                game:GetService("ReplicatedStorage").Remotes.CommE:FireServer("ActivateAbility")
-            end
-        end)
-    end
-    end)
-
-
-local ToggleAutoY = Tabs.Ok:AddToggle("ToggleAutoY", {Title = "Auto Turn On V4", Description = "", Default = false })
-ToggleAutoY:OnChanged(function(Value)
-    _G.AutoY = Value
-    end)
- Options.ToggleAutoY:SetValue(false)
- spawn(function()
-    while wait() do
-        pcall(function()
-            if _G.AutoY then
-                game:GetService("VirtualInputManager"):SendKeyEvent(true,"Y",false,game)
-				wait(0.1)
-                game:GetService("VirtualInputManager"):SendKeyEvent(false,"Y",false,game)
-            end
-        end)
-    end
-    end)
-
-
-local ToggleEnablePvp = Tabs.Ok:AddToggle("ToggleEnablePvp", {Title = "Auto Enable PVP", Description = "",Default = false })
-ToggleEnablePvp:OnChanged(function(Value)
-  _G.EnabledPvP = Value
-end)
-Options.ToggleEnablePvp:SetValue(false)
-
-spawn(function()
-  pcall(function()
-      while wait() do
-          if _G.EnabledPvP then
-              if game:GetService("Players").LocalPlayer.PlayerGui.Main.PvpDisabled.Visible == true then
-                  game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EnablePvp")
-              end
-          end
-      end
-  end)
-end)
-
-Tabs.Okk:AddButton({
-	Title = "Go Pirate", 
-	Description = "",
-	Callback = function()
-        local args = {
-    [1] = "SetTeam",
-    [2] = "Pirates"
-  }
-  game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-  local args = {
-    [1] = "BartiloQuestProgress"
-  }
-  game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-
- end
-})
+  
